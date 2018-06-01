@@ -1,0 +1,27 @@
+\documentclass{article}
+\begin{document}
+\thispagestyle{empty}
+
+\vbox{\begin{verbatim}
+C: SETUP rtsp://audio.example.com/twister/audio RTSP/1.0 
+   Transport: rtp/udp; compression; port=3056; mode=PLAY 
+S: RTSP/1.0 200 1 OK 
+   Session 4231 
+C: PLAY rtsp://audio.example.com/twister/audio.en/lofi RTSP/1.0 
+   Session: 4231 
+   Range: npt=0- 
+S: RTSP/1.0 200 1 OK 
+   Session 4231 
+C: PAUSE rtsp://audio.example.com/twister/audio.en/lofi RTSP/1.0 
+   Session: 4231 
+   Range: npt=37 
+S: RTSP/1.0 200 1 OK 
+   Session 4231 
+C: TEARDOWN rtsp://audio.example.com/twister/audio.en/lofi RTSP/1.0 
+   Session: 4231 
+S: 200 3 OK
+\end{verbatim}
+}
+% TEARDOWN (tirar abajo la conexión, desconectar)
+
+\end{document}

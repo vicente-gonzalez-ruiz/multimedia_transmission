@@ -1,0 +1,414 @@
+<!DOCTYPE html> 
+<html> 
+<head> <title>Multimedia transmission</title> 
+<meta charset="UTF-8" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<link rel="stylesheet" type="text/css" href="index.css" /> 
+<script type="text/javascript" 
+src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" 
+></script> 
+<style type="text/css"> 
+.MathJax_MathML {text-indent: 0;} 
+</style> 
+</head><body 
+>
+   <div class="maketitle">
+                                                                  
+
+                                                                  
+                                                                  
+
+                                                                  
+
+<h2 class="titleHead">Multimedia transmission</h2>
+ <div class="author" ><span 
+class="ecrm-1200">Vicente Gonz</span><span 
+class="ecrm-1200">á</span><span 
+class="ecrm-1200">lez Ruiz</span></div><br />
+<div class="date" ><span 
+class="ecrm-1200">June 1, 2018</span></div>
+   </div>
+   <h3 class="likesectionHead"><a 
+ id="x1-1000"></a>Contents</h3>
+   <div class="tableofcontents">
+   <span class="sectionToc" >1 <a 
+href="#x1-20001" id="QQ2-1-2">Características de la transmisión de audio y vídeo</a></span>
+<br />   <span class="sectionToc" >2 <a 
+href="#x1-30002" id="QQ2-1-3">Ejemplos de aplicaciones</a></span>
+<br />   <span class="sectionToc" >3 <a 
+href="#x1-40003" id="QQ2-1-4">Obstáculos de la Internet actual</a></span>
+<br />   <span class="sectionToc" >4 <a 
+href="#x1-50004" id="QQ2-1-5">¿Cómo debería evolucionar Internet?</a></span>
+<br />   <span class="sectionToc" >5 <a 
+href="#x1-60005" id="QQ2-1-6">Problemas y soluciones en la transmisión de audio y vídeo</a></span>
+<br />    <span class="subsectionToc" >5.1 <a 
+href="#x1-70005.1" id="QQ2-1-7">Eliminación del jitter</a></span>
+<br />    <span class="subsectionToc" >5.2 <a 
+href="#x1-80005.2" id="QQ2-1-8">Recuperación de paquetes perdidos</a></span>
+<br />    <span class="subsectionToc" >5.3 <a 
+href="#x1-90005.3" id="QQ2-1-9">Ordenación de paquetes</a></span>
+   </div>
+<!--l. 6--><p class="noindent" >
+</p>
+   <h3 class="sectionHead"><span class="titlemark">1   </span> <a 
+ id="x1-20001"></a>Características de la transmisión de audio y vídeo</h3>
+     <ul class="itemize1">
+     <li class="itemize">Las  aplicaciones  que  operan  con  secuencias  de  audio  y  vídeo  son
+     altamente sensibles al retraso de extremo-a-extremo (end-to-end delay) de
+     la red y a la variación de este retraso (jitter) <span class="cite">[<a 
+href="#XKurose-Ross-2">1</a>]</span>.
+     </li>
+     <li class="itemize">Relacionado  con  lo  anterior,  generalmente  necesitan  una  tasa  de
+     transmisión  promedio  sostenida  porque  una  vez  que  la  secuencia
+     comienza a ser reproducida no pueden ocurrir “cortes” por culpa de la red.
+                                                                  
+
+                                                                  
+     </li>
+     <li class="itemize">Normalmente toleran cierta cantidad de pérdida de datos durante la
+     transmisión.
+     </li>
+     <li class="itemize">En la mayoría de las transmisiones unicast se utiliza el UDP en lugar
+     del TCP debido no hace falta controlar ni el ﬂujo ni la congestión.
+     </li>
+     <li class="itemize">Si la transmisión es multicast sólo puede utilizarse el UDP.</li></ul>
+<!--l. 25--><p class="noindent" >
+</p>
+   <h3 class="sectionHead"><span class="titlemark">2   </span> <a 
+ id="x1-30002"></a>Ejemplos de aplicaciones</h3>
+<!--l. 57--><p class="noindent" > <!--tex4ht:inline--></p><div class="tabular"> <table id="TBL-2" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-2-1g"><col 
+id="TBL-2-1" /></colgroup><colgroup id="TBL-2-2g"><col 
+id="TBL-2-2" /><col 
+id="TBL-2-3" /><col 
+id="TBL-2-4" /></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-2-1-"><td  style="text-align:left; white-space:nowrap;" id="TBL-2-1-1"  
+class="td11">                 </td><td  style="text-align:left; white-space:nowrap;" id="TBL-2-1-2"  
+class="td11"> Stored Media          </td><td  style="text-align:left; white-space:nowrap;" id="TBL-2-1-3"  
+class="td11"> Live Media      </td><td  style="text-align:left; white-space:nowrap;" id="TBL-2-1-4"  
+class="td11"> Real-time Media                                                                                        </td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-2-"><td  style="text-align:left; white-space:nowrap;" id="TBL-2-2-1"  
+class="td11"> </td> <td  style="text-align:left; white-space:nowrap;" id="TBL-2-2-2"  
+class="td11"> Transmission </td> <td  style="text-align:left; white-space:nowrap;" id="TBL-2-2-3"  
+class="td11"> Transmission </td> <td  style="text-align:left; white-space:nowrap;" id="TBL-2-2-4"  
+class="td11"> Transmission</td>
+</tr><tr 
+class="hline"><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-3-"><td  style="text-align:left; white-space:nowrap;" id="TBL-2-3-1"  
+class="td11"> Example(s):          </td><td  style="text-align:left; white-space:nowrap;" id="TBL-2-3-2"  
+class="td11"> Video on Demand    </td><td  style="text-align:left; white-space:nowrap;" id="TBL-2-3-3"  
+class="td11"> Internet TV,    </td><td  style="text-align:left; white-space:nowrap;" id="TBL-2-3-4"  
+class="td11"> Video-conferencing,                                                                                    </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-4-"><td  style="text-align:left; white-space:nowrap;" id="TBL-2-4-1"  
+class="td11">                 </td><td  style="text-align:left; white-space:nowrap;" id="TBL-2-4-2"  
+class="td11">                   </td><td  style="text-align:left; white-space:nowrap;" id="TBL-2-4-3"  
+class="td11"> Internet Radio  </td><td  style="text-align:left; white-space:nowrap;" id="TBL-2-4-4"  
+class="td11"> IP telephony                                                                                             </td>
+</tr><tr 
+class="hline"><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-5-"><td  style="text-align:left; white-space:nowrap;" id="TBL-2-5-1"  
+class="td11"> Data-ﬂow control:  </td><td  style="text-align:left; white-space:nowrap;" id="TBL-2-5-2"  
+class="td11"> Pause, rewind,        </td><td  style="text-align:left; white-space:nowrap;" id="TBL-2-5-3"  
+class="td11"> None              </td><td  style="text-align:left; white-space:nowrap;" id="TBL-2-5-4"  
+class="td11"> None                                                                                                       </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-6-"><td  style="text-align:left; white-space:nowrap;" id="TBL-2-6-1"  
+class="td11">                 </td><td  style="text-align:left; white-space:nowrap;" id="TBL-2-6-2"  
+class="td11"> fast-forward            </td><td  style="text-align:left; white-space:nowrap;" id="TBL-2-6-3"  
+class="td11">              </td><td  style="text-align:left; white-space:nowrap;" id="TBL-2-6-4"  
+class="td11">                                                                       </td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-7-"><td  style="text-align:left; white-space:nowrap;" id="TBL-2-7-1"  
+class="td11"> </td> <td  style="text-align:left; white-space:nowrap;" id="TBL-2-7-2"  
+class="td11"> and indexing </td> <td  style="text-align:left; white-space:nowrap;" id="TBL-2-7-3"  
+class="td11"> </td> <td  style="text-align:left; white-space:nowrap;" id="TBL-2-7-4"  
+class="td11"></td>
+</tr><tr 
+class="hline"><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-8-"><td  style="text-align:left; white-space:nowrap;" id="TBL-2-8-1"  
+class="td11"> Pre-fetching:         </td><td  style="text-align:left; white-space:nowrap;" id="TBL-2-8-2"  
+class="td11"> Yes,                      </td><td  style="text-align:left; white-space:nowrap;" id="TBL-2-8-3"  
+class="td11"> No way           </td><td  style="text-align:left; white-space:nowrap;" id="TBL-2-8-4"  
+class="td11"> No way                                                                                                    </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-9-"><td  style="text-align:left; white-space:nowrap;" id="TBL-2-9-1"  
+class="td11">                 </td><td  style="text-align:left; white-space:nowrap;" id="TBL-2-9-2"  
+class="td11"> if extra band-width  </td><td  style="text-align:left; white-space:nowrap;" id="TBL-2-9-3"  
+class="td11">              </td><td  style="text-align:left; white-space:nowrap;" id="TBL-2-9-4"  
+class="td11">                                                                       </td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-10-"><td  style="text-align:left; white-space:nowrap;" id="TBL-2-10-1"  
+class="td11"> </td> <td  style="text-align:left; white-space:nowrap;" id="TBL-2-10-2"  
+class="td11"> is available </td> <td  style="text-align:left; white-space:nowrap;" id="TBL-2-10-3"  
+class="td11"> </td> <td  style="text-align:left; white-space:nowrap;" id="TBL-2-10-4"  
+class="td11"></td>
+</tr><tr 
+class="hline"><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-11-"><td  style="text-align:left; white-space:nowrap;" id="TBL-2-11-1"  
+class="td11"> Buﬀering:             </td><td  style="text-align:left; white-space:nowrap;" id="TBL-2-11-2"  
+class="td11"> As large as possible  </td><td  style="text-align:left; white-space:nowrap;" id="TBL-2-11-3"  
+class="td11"> Jitter hiding     </td><td  style="text-align:left; white-space:nowrap;" id="TBL-2-11-4"  
+class="td11"> <!--l. 59--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" > <mo 
+class="MathClass-rel">&#x003C;</mo> <mn>5</mn><mn>0</mn><mn>0</mn></math> ms  </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-12-"><td  style="text-align:left; white-space:nowrap;" id="TBL-2-12-1"  
+class="td11">                 </td><td  style="text-align:left; white-space:nowrap;" id="TBL-2-12-2"  
+class="td11">                   </td><td  style="text-align:left; white-space:nowrap;" id="TBL-2-12-3"  
+class="td11"> (few seconds)   </td><td  style="text-align:left; white-space:nowrap;" id="TBL-2-12-4"  
+class="td11">                                                                       </td>
+</tr><tr 
+class="hline"><td><hr /></td><td><hr /></td><td><hr /></td><td><hr /></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-13-"><td  style="text-align:left; white-space:nowrap;" id="TBL-2-13-1"  
+class="td11"> Internet transport  </td><td  style="text-align:left; white-space:nowrap;" id="TBL-2-13-2"  
+class="td11"> UDP/TCP             </td><td  style="text-align:left; white-space:nowrap;" id="TBL-2-13-3"  
+class="td11"> UDP              </td><td  style="text-align:left; white-space:nowrap;" id="TBL-2-13-4"  
+class="td11"> UDP                                                                                                       </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-14-"><td  style="text-align:left; white-space:nowrap;" id="TBL-2-14-1"  
+class="td11"> protocol(s):          </td><td  style="text-align:left; white-space:nowrap;" id="TBL-2-14-2"  
+class="td11">                   </td><td  style="text-align:left; white-space:nowrap;" id="TBL-2-14-3"  
+class="td11">              </td><td  style="text-align:left; white-space:nowrap;" id="TBL-2-14-4"  
+class="td11">                                                                       </td> </tr></table></div>
+<!--l. 118--><p class="noindent" >
+</p>
+   <h3 class="sectionHead"><span class="titlemark">3   </span> <a 
+ id="x1-40003"></a>Obstáculos de la Internet actual</h3>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="ecbx-1000">Tasas  de  transmisi</span><span 
+class="ecbx-1000">ó</span><span 
+class="ecbx-1000">n  variables: </span>las  mayoría  de  los  algoritmos
+     de compresión utilizados para codiﬁcar audio y vídeo necesitan tasas
+     de  bits  constantes  o  ligeramente  variables,  pero  casi  nunca  permiten
+     adaptarse facilmente al ancho de banda de la red.
+     </li>
+     <li class="itemize"><span 
+class="ecbx-1000">Latencias   altas   y   variables:  </span>en   muchos   casos   el   retraso   de
+     extremo-a-extremo es demasiado alto (especialmente cuando los paquetes
+     atraviesan enlaces congestionados) y además el jitter de los paquetes es
+     distinto de cero.
+     </li>
+     <li class="itemize"><span 
+class="ecbx-1000">No existen pol</span><span 
+class="ecbx-1000">í</span><span 
+class="ecbx-1000">ticas de prioridad: </span>todos los paquetes son tratados
+     por igual por los routers, por tanto, paquetes que no son sensibles al tiempo
+     compiten por los mismos recursos que paquetes que sí lo son.
+     </li>
+     <li class="itemize"><span 
+class="ecbx-1000">No existe el concepto de stream: </span>los paquetes pertenecientes al mismo
+     stream de audio o de vídeo pueden desordenarse en la red.</li></ul>
+                                                                  
+
+                                                                  
+<!--l. 138--><p class="noindent" >
+</p>
+   <h3 class="sectionHead"><span class="titlemark">4   </span> <a 
+ id="x1-50004"></a>¿Cómo debería evolucionar Internet?</h3>
+     <ul class="itemize1">
+     <li class="itemize">A la hora de acomodar el tráﬁco sensible al tiempo, actualmente existen dos
+     políticas radicalmente opuestas:
+         <ol  class="enumerate1" >
+         <li 
+  class="enumerate" id="x1-5002x1"><span 
+class="ecbx-1000">Permitir que las aplicaciones permitan reservar ancho de banda:</span>
+         Esto signiﬁca fundamentalmente que:
+             <ul class="itemize2">
+             <li class="itemize">Habría que modiﬁcar las políticas de servicio de los paquetes
+             en los routers, lo que implica un gran cambio en su diseño actual.
+             </li>
+             <li class="itemize">Habría que idear alguna forma de controlar cúanto y cuándo
+             se reservan los recursos (pagando por ello, por supuesto).
+             </li>
+             <li class="itemize">Habría que etiquetar los paquetes con información sensible al
+             tiempo para que los routers los distinguieran.</li></ul>
+         </li>
+         <li 
+  class="enumerate" id="x1-5004x2"><span 
+class="ecbx-1000">Incrementar el ancho de banda y distribuir adecuadamente los</span>
+         <span 
+class="ecbx-1000">contenidos:</span>
+             <ul class="itemize2">
+             <li class="itemize">Los incrementos en las necesidades de ancho de banda se deben
+             principalmente  a  que  más  usuarios  se  conectan  a  la  red  y
+             tienen  accesos  de  mayor  velocidad  a  través  de  su  ISP.  Es
+             lógico esperar que dicho ISP gane dinero dando dicho servicio
+             y que reinvierta parte de sus beneﬁcios en infraestructura. En
+             deﬁnitiva, la red va a crecer al mismo ritmo que se demandan
+             recursos.
+             </li>
+             <li class="itemize">Existen  técnicas  de  replicación  de  contenidos  que  pueden
+             ayudar a disminuir enormemente el tráﬁco. Por ejemplo, los
+             ISP&#x2019;s deberían instalar en sus servidores aquellas secuencia de
+             audio y vídeo que sus usuarios reclaman con mayor frecuencia.</li></ul>
+         </li></ol>
+     </li></ul>
+                                                                  
+
+                                                                  
+<!--l. 178--><p class="noindent" >
+</p>
+   <h3 class="sectionHead"><span class="titlemark">5   </span> <a 
+ id="x1-60005"></a>Problemas y soluciones en la transmisión de audio y vídeo</h3>
+<!--l. 179--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">5.1   </span> <a 
+ id="x1-70005.1"></a>Eliminación del jitter</h4>
+     <ul class="itemize1">
+     <li class="itemize">¿Por qué se retrasan los paquetes?
+         <ul class="itemize2">
+         <li class="itemize">Aunque el emisor generalmente coloca los paquetes (más o menos)
+         periódicamente en la red, los routers pueden introducir un retardo
+         variable en ellos dependiendo del estado de sus colas.</li></ul>
+     </li>
+     <li class="itemize">¿Cómo solucionamos el problema?
+         <ul class="itemize2">
+         <li class="itemize">Retrasando  la  reproducción  un  tiempo  prudencial  (la  máxima
+         latencia de extremo-a-extremo esperada o bien un retraso que genere
+         una  tasa  de  pérdida  de  paquetes  admisible)  o  hasta  donde  sea
+         posible (a lo sumo 500 ms en el caso de las transmisiones en tiempo
+         real).</li></ul>
+     </li></ul>
+<!--l. 255--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">5.2   </span> <a 
+ id="x1-80005.2"></a>Recuperación de paquetes perdidos</h4>
+     <ul class="itemize1">
+     <li class="itemize">¿Por qué se pierden los paquetes?
+         <ul class="itemize2">
+         <li class="itemize">Aunque el contenido de un paquete recibido puede ser diferente del
+         enviado (lo que también puede ser un problema), lo normal es que
+         los paquetes lleguen (sin errores) o no lleguen debido a los problemas
+         de congestión de la red.
+                                                                  
+
+                                                                  
+         </li>
+         <li class="itemize">En  otras  ocasiones,  aunque  el  paquete  llega  al  destino  lo  puede
+         hacer demasiado tarde, especialmente en el caso de una transmisión
+         interactiva en tiempo real. Cuando esto ocurre, el paquete se descarta
+         en el receptor.</li></ul>
+     </li>
+     <li class="itemize">¿Cómo  solucionamos  el
+     problema?<span class="footnote-mark"><a 
+href="index2.html#fn1x0"><sup class="textsuperscript">1</sup></a></span><a 
+ id="x1-8001f1"></a> 
+         <ol  class="enumerate1" >
+         <li 
+  class="enumerate" id="x1-8003x1">Enviando información redundante:
+             <ul class="itemize2">
+             <li class="itemize"><span 
+class="ecbx-1000">A</span><span 
+class="ecbx-1000">ñ</span><span 
+class="ecbx-1000">adiendo c</span><span 
+class="ecbx-1000">ó</span><span 
+class="ecbx-1000">digos de detecci</span><span 
+class="ecbx-1000">ó</span><span 
+class="ecbx-1000">n y correcci</span><span 
+class="ecbx-1000">ó</span><span 
+class="ecbx-1000">n</span>
+             <span 
+class="ecbx-1000">de errores</span>, por ejemplo, insertando un paquete de paridad
+             periódicamente.
+                <div class="quote">
+                <!--l. 278--><p class="noindent" >Si cada <!--l. 278--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>n</mi></math>
+                paquetes introducimos uno con la operación XOR de
+                los bits de mismo índice (posición) de estos paquetes,
+                podemos reconstruir un paquete perdido tras recibir los
+                <!--l. 280--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>n</mi> <mo 
+class="MathClass-bin">+</mo> <mn>1</mn></math>
+                paquetes.</p></div>
+             </li>
+             <li class="itemize"><span 
+class="ecbx-1000">A</span><span 
+class="ecbx-1000">ñ</span><span 
+class="ecbx-1000">adiendo a cada paquete informaci</span><span 
+class="ecbx-1000">ó</span><span 
+class="ecbx-1000">n redundante sobre</span>
+             <span 
+class="ecbx-1000">otro paquete (piggybacking)</span>.
+                <div class="quote">
+                <!--l. 285--><p class="noindent" >Podemos  insertar,  en  cada  paquete,  información  (de
+                baja calidad) sobre el paquete anterior. La información
+                piggybacked de baja calidad del paquete <!--l. 287--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>i</mi></math>
+                se utiliza si se pierde el paquete <!--l. 288--><math 
+ xmlns="http://www.w3.org/1998/Math/MathML"  
+display="inline" ><mi 
+>i</mi> <mo 
+class="MathClass-bin">−</mo> <mn>1</mn></math>.
+                Gráﬁcamente:</p></div>
+             <!--l. 291--><p class="noindent" > <div style="text-align:center;"> <img height=400 src="data/piggybacking.png" /> </div>  </p></li></ul>
+         </li>
+         <li 
+  class="enumerate" id="x1-8005x2"><span 
+class="ecbx-1000">Entrelazando la informaci</span><span 
+class="ecbx-1000">ó</span><span 
+class="ecbx-1000">n (interleaving) y luego aplicando</span>
+         <span 
+class="ecbx-1000">alguna t</span><span 
+class="ecbx-1000">é</span><span 
+class="ecbx-1000">cnica de predicci</span><span 
+class="ecbx-1000">ó</span><span 
+class="ecbx-1000">n o interpolaci</span><span 
+class="ecbx-1000">ó</span><span 
+class="ecbx-1000">n</span>.
+             <div class="quote">
+             <!--l. 297--><p class="noindent" >El emisor coloca en cada paquete porciones de stream no
+             consecutivos. Ejemplo:</p></div>
+         <!--l. 301--><p class="noindent" > <div style="text-align:center;"> <img height=600 src="data/interleaving.png" /> </div> 
+                                                                  
+
+                                                                  
+</p>
+         </li></ol>
+     </li></ul>
+<!--l. 313--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">5.3   </span> <a 
+ id="x1-90005.3"></a>Ordenación de paquetes</h4>
+     <ul class="itemize1">
+     <li class="itemize">¿Por qué se desordenan los paquetes?
+         <ul class="itemize2">
+         <li class="itemize">Las tablas de routing de los routers son dinámicas y por lo tanto,
+         dos paquetes del mismo stream pueden viajar por caminos distintos
+         con diferente longitud (en términos de tiempo).</li></ul>
+     </li>
+     <li class="itemize">¿Cómo solucionamos el problema?
+         <ul class="itemize2">
+         <li class="itemize">Insertando un número de secuencia<span class="footnote-mark"><a 
+href="index3.html#fn2x0"><sup class="textsuperscript">2</sup></a></span><a 
+ id="x1-9001f2"></a> 
+         en cada paquete.</li></ul>
+     </li></ul>
+<!--l. 1--><p class="noindent" >
+</p>
+   <h3 class="likesectionHead"><a 
+ id="x1-100005.3"></a>References</h3>
+<!--l. 1--><p class="noindent" >
+   </p><div class="thebibliography">
+   <p class="bibitem" ><span class="biblabel">
+ [1]<span class="bibsp">   </span></span><a 
+ id="XKurose-Ross-2"></a>James F.  Kurose  and  Keith W.  Ross.     <span 
+class="ecti-1000">Computer  Networking:  A</span>
+   <span 
+class="ecti-1000">Top-Down Approach Featuring the Internet (2nd Edition)</span>. Addison Wesley,
+   2003.
+</p>
+   </div>
+    
+</body> 
+</html>
+                                                                  
+
+

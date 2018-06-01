@@ -1,0 +1,20 @@
+\documentclass{article}
+\begin{document}
+\thispagestyle{empty}
+\vbox{
+\begin{verbatim}
+struct RTP_header {
+  uint2   Version = 2;
+  bit     Padding;        /* There are extra padding bytes at the end of the RTP packet. */
+  bit     Extension;      /* Presence of an Extension header. */
+  uint4   CSRC_Count;     /* Number of CSRC (Contributing SouRCe) identifiers. */
+  bit     Marker;         /* The payload is relevant for the application. */
+  uint7   Payload_Type;   /* Payload format (PCM, GSM, MPEG-1 ...). /
+  uint16  Sequence_Number;/* Packet count. */
+  uint32  Time_Stamp;     /* Instant of the first octet in the payload. */
+  uint32  SSRC;           /* Synchronization SouRCe identifier. */
+  uint32* CSRC;           /* Contributing sources for the payload. */
+};
+\end{verbatim}
+}
+\end{document}
